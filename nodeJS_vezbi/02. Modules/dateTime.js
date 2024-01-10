@@ -9,7 +9,7 @@ function CalcAge(year, month, day) {
   // funkcija za presmetka na meseci
   function months(month) {
     const newDate = new Date();
-    if (newDate.getMonth() + 1 > month) {
+    if (newDate.getMonth() + 1 - month > 0) {
       return newDate.getMonth() + 1 - month;
     } else {
       return 12 - (month - newDate.getMonth());
