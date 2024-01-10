@@ -19,15 +19,10 @@ function CalcAge(year, month, day) {
 
   // tuke nemozam da gi presmetam denovite tocno funkcija za presmetka na denovi
   function days(day) {
-    if (newDate.getDate() >= day) {
+    if (newDate.getDate() - day > 0) {
       return newDate.getDate() - day;
     } else {
-      const daysInMonth = new Date(
-        newDate.getFullYear(),
-        newDate.getMonth() + 1,
-        0
-      ).getDate();
-      return daysInMonth - (day - newDate.getDay());
+      return day - newDate.getDay();
     }
   }
   const dayss = days(day);
