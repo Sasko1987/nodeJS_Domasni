@@ -5,8 +5,15 @@
 
 function CalcAge(year, month, day) {
   const newDate = new Date();
-  const years = newDate.getFullYear() - year;
+  const years = newDate.getFullYear() - year - 1;
+
+  //presmetka na denovi vo mesec
+  const functionDaysInMonth = (year, month) =>
+    new Date(year, month, 0).getDate();
+  const daysInMonth = functionDaysInMonth(year, month);
+
   // funkcija za presmetka na meseci
+
   function months(month) {
     const newDate = new Date();
     if (newDate.getMonth() + 1 - month > 0) {
@@ -19,10 +26,10 @@ function CalcAge(year, month, day) {
 
   // tuke nemozam da gi presmetam denovite tocno funkcija za presmetka na denovi
   function days(day) {
-    if (newDate.getDate() - day > 0) {
-      return newDate.getDate() - day;
+    if (daysInMonth - day + newDate.getDate() < day) {
+      return daysInMonth - day + newDate.getDate();
     } else {
-      return day - newDate.getDay();
+      return daysInMonth - day - newDate.getDate();
     }
   }
   const dayss = days(day);
@@ -31,4 +38,24 @@ function CalcAge(year, month, day) {
   );
 }
 
-CalcAge(1987, 11, 28);
+CalcAge(1987, 11, 13);
+
+function changeFormat(year, month, day) {
+  if (day < 10) {
+    day = `0${day}`;
+  } else {
+    day;
+  }
+
+  if (month < 10) {
+    month = `0${month}`;
+  } else {
+    month;
+  }
+  const changedFormat = `${day}/${month}/${year}`;
+  console.log(changedFormat);
+}
+
+changeFormat(2024, 1, 5);
+
+module.exports = { CalcAge, changeFormat };
