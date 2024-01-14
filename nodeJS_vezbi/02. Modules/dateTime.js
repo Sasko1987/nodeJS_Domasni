@@ -3,59 +3,54 @@
 //     - Направи модул dateTime.js со функции за манипулација со датуми и времиња, како пресметување на разлики помеѓу датуми, форматирање итн.
 //     - Функциите треба да ги повикаш и тестираш во index.js фајлот
 
-function CalcAge(year, month, day) {
-  const newDate = new Date();
-  const years = newDate.getFullYear() - year - 1;
+function formatCurrentDate(lang) {
+  const today = new Date();
+  const newFormatedDate = today.toLocaleDateString(lang, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+  console.log(newFormatedDate);
+}
 
-  //presmetka na denovi vo mesec
-  const functionDaysInMonth = (year, month) =>
-    new Date(year, month, 0).getDate();
-  const daysInMonth = functionDaysInMonth(year, month);
-
-  // funkcija za presmetka na meseci
-
-  function months(month) {
-    const newDate = new Date();
-    if (newDate.getMonth() + 1 - month > 0) {
-      return newDate.getMonth() + 1 - month;
-    } else {
-      return 12 - (month - newDate.getMonth());
-    }
-  }
-  const monthss = months(month);
-
-  // tuke nemozam da gi presmetam denovite tocno funkcija za presmetka na denovi
-  function days(day) {
-    if (daysInMonth - day + newDate.getDate() < day) {
-      return daysInMonth - day + newDate.getDate();
-    } else {
-      return daysInMonth - day - newDate.getDate();
-    }
-  }
-  const dayss = days(day);
+function checkDay(enterDate) {
+  let newDate = new Date(enterDate);
+  const stringMonth = newDate.toLocaleDateString("mk-MK", { month: "long" });
+  const checkWeekDay = newDate.toLocaleDateString("mk-MK", { weekday: "long" });
   console.log(
-    `Today you have ${years} years, ${monthss} months and ${dayss} days`
+    `${newDate.getDate()} ${stringMonth} ${newDate.getFullYear()} година e ${checkWeekDay}`
   );
 }
 
-CalcAge(1987, 11, 13);
+function calculateAge(birthdate) {
+  const today = new Date();
+  const birthday = new Date(birthdate);
 
-function changeFormat(year, month, day) {
-  if (day < 10) {
-    day = `0${day}`;
-  } else {
-    day;
-  }
+  const secondsInMinute = 60;
+  const minutesInHour = 60;
+  const hoursInDay = 24;
+  const daysInYear = 365.25;
+  const miliseconds = today.getTime() - birthday.getTime();
+  const milisecondsInSecon = 1000;
+  const milisecondsInYear =
+    milisecondsInSecon *
+    secondsInMinute *
+    minutesInHour *
+    hoursInDay *
+    daysInYear;
 
-  if (month < 10) {
-    month = `0${month}`;
-  } else {
-    month;
-  }
-  const changedFormat = `${day}/${month}/${year}`;
-  console.log(changedFormat);
+  const calculatedYears = miliseconds / milisecondsInYear;
+  const ageYears = Math.floor(calculatedYears);
+
+  const calcMonths = (calculatedYears - ageYears) * 12;
+  const month = Math.floor(calcMonths);
+
+  const calcDays = (calcMonths - month) * 30.45;
+  const days = Math.floor(calcDays);
+
+  console.log(
+    `Today you have ${ageYears} years, ${month} months and ${days} days`
+  );
 }
 
-changeFormat(2024, 1, 5);
-
-module.exports = { CalcAge, changeFormat };
+module.exports = { formatCurrentDate, calculateAge, checkDay };
