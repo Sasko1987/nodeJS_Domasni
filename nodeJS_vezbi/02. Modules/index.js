@@ -2,6 +2,7 @@ const { circle, rectangle, triangle } = require("./geometry");
 const { users, addUser, deleteUser, findUser } = require("./userManagement");
 const convertor = require("./currencyConverter");
 const { formatCurrentDate, calculateAge, checkDay } = require("./dateTime");
+const { findWord, replaceText } = require("./textProcessor");
 
 // Модул за пресметување на површина на геометриска фигура
 
@@ -28,3 +29,7 @@ console.log(findUser(newUsers, "Mirko"));
 calculateAge("1987.11.28"), checkDay("1987.11.28");
 
 formatCurrentDate();
+
+// Модул за обработка на текст
+findWord("city");
+replaceText("grad", "city");
