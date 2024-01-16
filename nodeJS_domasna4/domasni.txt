@@ -1,0 +1,7 @@
+1. Kreirajte ruta "/semos", kade sto GET baranjeto ke vrakja podatoci od "domasni.txt" fajl, t.e negovata sodrzina.
+
+'2. Istata ruta  koga ke dobie POST baranje, sopomos na fs.writeFile da gi zapise novite podatoci vo domasni.txt.'
+
+
+
+'2. Istata ruta  koga ke dobie POST baranje, sopomos na fs.writeFile da gi zapise novite podatoci vo domasni.txt.'
