@@ -17,7 +17,7 @@ function findWord(word) {
 }
 
 function replaceText(text, replaceWith) {
-  let result = readSync.replace(text, replaceWith);
+  let result = readSync.replaceAll(text, replaceWith);
 
   fs.writeFile("skopje.txt", result, "utf-8", (err) => {
     if (err) return err;

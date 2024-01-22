@@ -25,7 +25,7 @@ function checkDay(enterDate) {
 function calculateAge(birthdate) {
   const today = new Date();
   const birthday = new Date(birthdate);
-
+  // new Date(birthdate) / 1000 = vreme vo sekundi
   const secondsInMinute = 60;
   const minutesInHour = 60;
   const hoursInDay = 24;
@@ -52,5 +52,7 @@ function calculateAge(birthdate) {
     `Today you have ${ageYears} years, ${month} months and ${days} days`
   );
 }
+
+calculateAge("1987.11.28");
 
 module.exports = { formatCurrentDate, calculateAge, checkDay };
