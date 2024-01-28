@@ -17,10 +17,10 @@ const {
   convertFeetToMetres,
 } = require("./conversion");
 
-let milesToKm = convertMilesToKm(20);
-let celsToFahr = convertCelsuisToFahrenheit(35);
-let poundsToKg = convertPoundsToKilogram(80).toFixed(2);
-let feetToMeters = convertFeetToMetres(20).toFixed(2);
+const milesToKm = convertMilesToKm(20);
+const celsToFahr = convertCelsuisToFahrenheit(35);
+const poundsToKg = convertPoundsToKilogram(80).toFixed(2);
+const feetToMeters = convertFeetToMetres(20).toFixed(2);
 
 console.log(`Converted value to kilometers is ${milesToKm}`);
 console.log(`Converted value to fahrenheit is ${celsToFahr}`);

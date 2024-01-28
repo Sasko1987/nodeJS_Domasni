@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
     handleEmail(req, res, parsedUrl.query.email);
     console.log(parsedUrl.query.email);
   } else if (parsedUrl.pathname === "/location") {
-    handleLocation(req, res, parsedUrl.query.city, parsedUrl.query.country);
+    handleLocation(req, res, parsedUrl.query);
   } else {
     handlePageNotFound(req, res);
   }

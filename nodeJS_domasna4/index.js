@@ -10,11 +10,12 @@ const server = http.createServer((req, res) => {
     req.on("end", () => {
       const parsedData = JSON.parse(collectedData);
       const podatoci = parsedData.zadaca;
+
       fs.writeFile("domasni.txt", podatoci + "\n", { flag: "a" }, (err) => {
         if (err) return err;
       });
     });
-  } else if (req.url === "/semos") {
+  } else if (req.url === "/semos" && req.method === "GET") {
     fs.readFile("./domasni.txt", "utf-8", (err, data) => {
       if (err) {
         console.log(err);
@@ -24,6 +25,9 @@ const server = http.createServer((req, res) => {
         res.end();
       }
     });
+  } else {
+    res.writeHead(404, { "Content-type": "text/plain" });
+    res.end("Page not found");
   }
 });
 

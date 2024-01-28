@@ -60,8 +60,8 @@ function vtoraZadaca(studenti) {
 function tretaZadaca(studenti) {
   return studenti
     .filter((stud) => stud.ime.length === 5)
-    .splice(0, 3)
-    .sort((a, b) => a.prosek - b.prosek);
+    .sort((a, b) => a.prosek - b.prosek)
+    .splice(0, 3);
 }
 
 // 4. Градови подредени по групна висина на просек.
@@ -102,12 +102,13 @@ function cetvrtaZadaca(studenti) {
     (acc, curr) => acc + curr.prosek / strumica.length,
     0
   );
-  // let gradovi = [];
-  // studenti.forEach((stud) => {
-  //   if (!gradovi.includes(stud.grad)) {
-  //     gradovi.push(stud.grad);
-  //   }
-  // });
+  let gradovi = [];
+  studenti.forEach((stud) => {
+    if (!gradovi.includes(stud.grad)) {
+      gradovi.push(stud.grad);
+    }
+  });
+  return prosekZaBitola;
 }
 
 // 5. Вкупен просек на студенти чие име завршува на а наспроти сите останати.
