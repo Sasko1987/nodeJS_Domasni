@@ -22,7 +22,7 @@ async function updateRecipe(req, res) {
   const updatedRecipes = recipes.map((recipe) => {
     if (recipe.id === Number(id)) {
       recipe.ingredients = ingredients;
-      recipe.methods = methods; // add this line to update methods
+      recipe.methods = methods;
     }
     return recipe;
   });
