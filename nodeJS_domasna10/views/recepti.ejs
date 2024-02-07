@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Recepti</title>
+  </head>
+  <body>
+    <table border="1" width="100%">
+      <tr>
+        <th>Number</th>
+        <th>Recipe</th>
+        <th>Ingredients</th>
+        <th>Method</th>
+      </tr>
+      <% recepti.forEach((recept, i)=>{ %>
+      <tr>
+        <td><%=recept.id%></td>
+        <td><%=recept.recipe%></td>
+        <td>
+          <ul>
+            <% for (let key in recept.ingredients) { %>
+            <li><%= key%> : <%= recept.ingredients[key]%></li>
+            <%}%>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <% for (let key in recept.method) {%>
+            <li><%= key%> : <%= recept.method[key]%></li>
+            <%}%>
+          </ul>
+        </td>
+        <td><a href="/brishi?index=<%=i%>">Бриши</a></td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>
