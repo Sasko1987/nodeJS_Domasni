@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(158, 206, 246);
+  height: 100vh;
+}
+
+header {
+  background-color: rgb(8, 8, 97);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 10px 50px;
+}
+
+.logo p {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-items {
+  display: flex;
+  gap: 50px;
+  font-size: 20px;
+  list-style: none;
+}
+
+.nav-items a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  padding: 20px 0;
+  background: rgb(255, 255, 255, 0.6);
+  margin: auto;
+  box-shadow: 5px 5px 5px rgb(255, 255, 255, 0.3);
+  border-radius: 15px;
+}
+
+label {
+  font-size: 18px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: rgb(8, 8, 97);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(9, 9, 116);
+}
+
+button:active {
+  transform: scale(0.92);
+}
+
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  background-color: rgb(8, 8, 97);
+  color: white;
+  text-align: center;
+  height: 30px;
+  margin-top: 50px;
+}

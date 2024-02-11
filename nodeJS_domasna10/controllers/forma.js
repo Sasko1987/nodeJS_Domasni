@@ -6,18 +6,18 @@ function getForm(req, res) {
 
 async function postForm(req, res) {
   const { recipe, ingredients, method } = req.body; // kako da se napravi ingrediants da se isprati ko objekt, isto i za metod
+  let ingrediantsObj = {};
+  let methodObj = {};
+  receptite.createObject(ingredients, ingrediantsObj);
+  receptite.createObject(method, methodObj);
   let data = {
     recipe,
-    ingredients: {
-      ...ingredients,
-    },
-    method: {
-      ...method,
-    },
+    ingredients: ingrediantsObj,
+    method: methodObj,
   };
-  console.log(data);
-  // await receptite.addRecipe(data);
-  // res.redirect("/recipes");
+
+  await receptite.addRecipe(data);
+  res.redirect("/recipes");
 }
 
 async function getRecipes(req, res) {

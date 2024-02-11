@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site Recepti</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <%- include("partials/header")%>
     <table border="1" width="100%">
       <tr>
         <th>Number</th>
@@ -31,9 +33,12 @@
             <%}%>
           </ul>
         </td>
-        <td><a href="/brishi?index=<%=i%>">Бриши</a></td>
+        <td>
+          <button><a href="/brishi?index=<%=i%>">Бриши</a></button>
+        </td>
       </tr>
       <% }); %>
     </table>
+    <%- include("partials/footer")%>
   </body>
 </html>

@@ -34,5 +34,10 @@
       "secondStep": "Meanwhile, heat the oil in a large frying pan, then fry the onion. After 3 mins, add the courgettes and garlic and continue to fry until the courgette has softened and turned bright green. Stir in 2/3 of both the ricotta and the cheddar, then season to taste. Heat the tomato sauce in the microwave for 2 mins on High until hot.",
       "thirdStep": "In a large baking dish, layer up the lasagne, starting with half the courgette mix, then pasta, then tomato sauce. Repeat, top with blobs of the remaining ricotta, then scatter with the rest of the cheddar. Bake on the top shelf for about 10 mins until the pasta is tender and the cheese is golden."
     }
+  },
+  {
+    "recipe": "Strawberry-Banana Smoothie",
+    "ingredients": { "banana": "1", "strawberry": "1 cup", "milk": "1/2 cup" },
+    "method": { "fist": "Blend the banana", "second": "Pour into a glass." }
   }
 ]

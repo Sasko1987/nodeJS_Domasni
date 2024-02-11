@@ -30,6 +30,15 @@ async function addRecipe(data) {
   await write("recipes.json", recepti);
 }
 
+function createObject(input, object) {
+  const inputData = input
+    .split(/[\n,]/)
+    .map((el) => el.split(":").map((item) => item.trim()));
+  inputData.forEach(([key, value]) => {
+    return (object[key] = value);
+  });
+}
+
 async function showRecipes() {
   return await read("recipes.json");
 }
@@ -41,4 +50,11 @@ async function removeRecipe(index) {
   await write("recipes.json", recepti);
 }
 
-module.exports = { read, write, addRecipe, showRecipes, removeRecipe };
+module.exports = {
+  read,
+  write,
+  addRecipe,
+  showRecipes,
+  removeRecipe,
+  createObject,
+};
